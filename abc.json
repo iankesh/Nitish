@@ -1,0 +1,394 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Claros.Instrument.Workflow",
+        "version": "v1"
+    },
+    "host": "api-eu-sprint.hachtest.com",
+    "basePath": "/instrument/workflow/v1",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/workflow": {
+            "post": {
+                "description": "Create a new Workflow",
+                "operationId": "create-workflow",
+                "summary": "Create Workflow",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/start": {
+            "put": {
+                "description": "Endpoint called to proceed the Workflow",
+                "operationId": "start-workflow",
+                "summary": "Start Workflow",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/widget/activateWiper": {
+            "post": {
+                "description": "Endpoint called to activate the Wiper ",
+                "operationId": "activate-wiper",
+                "summary": "Activate Wiper",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/calibration/choices": {
+            "post": {
+                "description": "Method that will be called by the FFDAC Router Service to submit MSG_TYPE 5 received from the instrument.",
+                "operationId": "calibration-choices",
+                "summary": "Calibration Choices",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/calibration/complete": {
+            "post": {
+                "description": "Method that will be called by the FFDAC Router Service to submit MSG_TYPE 9 received from the instrument.",
+                "operationId": "calibration-complete",
+                "summary": "Calibration Complete",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/calibration/error": {
+            "post": {
+                "description": "Method that will be called by the FFDAC Router Service to submit MSG_TYPE 11 received from the instrument.",
+                "operationId": "calibration-error",
+                "summary": "Calibration Error",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/calibration/job": {
+            "post": {
+                "description": "Method that will be called by the FFDAC Router Service to submit MSG_TYPE 8 received from the instrument.",
+                "operationId": "calibration-job",
+                "summary": "Calibration Job",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/calibration/jobResults": {
+            "post": {
+                "description": "Method that will be called by the FFDAC Router Service to submit MSG_TYPE 12 received from the instrument.",
+                "operationId": "calibration-job-results",
+                "summary": "Calibration Job Results",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/calibration/sample": {
+            "post": {
+                "description": "Method that will be called by the FFDAC Router Service to submit MSG_TYPE 7 received from the instrument.",
+                "operationId": "calibration-sample",
+                "summary": "Calibration Sample",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/proceed": {
+            "put": {
+                "description": "Enable to proceed the workflow",
+                "operationId": "proceed-workflow",
+                "summary": "Proceed Workflow",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/callback/sendCommand": {
+            "post": {
+                "operationId": "send-command-callback",
+                "summary": "Send Command Callback",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content_Type",
+                        "in": "header",
+                        "type": "string",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/workflow/{workflowId}/callback/widget/{owner}": {
+            "post": {
+                "operationId": "activate-wiper-callback",
+                "summary": "Activate Wiper Callback",
+                "parameters": [
+                    {
+                        "name": "workflowId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "owner",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "type": "string",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "tags": []
+}
